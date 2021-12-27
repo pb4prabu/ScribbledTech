@@ -1,7 +1,7 @@
 package com.scribbledtech.praveen.algorithms;
 
 
-public class MaxProfitStockSellingMultipleTransactions {
+public class MaxProfitStockSellingLimitedTransactions {
 
     /*
     *   You are given an integer array prices where prices[i] is the price of a given stock on the ith day, and an integer k.
@@ -48,8 +48,8 @@ public class MaxProfitStockSellingMultipleTransactions {
 
     public static void main(String[] args) {
 
-        System.out.println(new MaxProfitStockSellingMultipleTransactions().maxProfitTopDown(2, new int[]{3, 2, 6, 5, 0, 3}));
-        System.out.println(new MaxProfitStockSellingMultipleTransactions().maxProfitBottomUp(2, new int[]{3, 2, 6, 5, 0, 3}));
+        System.out.println(new MaxProfitStockSellingLimitedTransactions().maxProfitTopDown(2, new int[]{3, 2, 6, 5, 0, 3}));
+        System.out.println(new MaxProfitStockSellingLimitedTransactions().maxProfitBottomUp(2, new int[]{3, 2, 6, 5, 0, 3}));
 
     }
 
