@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package com.scribbledtech.grpc_product_service.product;
+
+// The product information service definition.
+service Product {
+  // Sends a request for product information
+  rpc GetProductInfo(ProductIdRequest) returns (ProductInfoResponse) {}
+}
+
+// The request message containing the product's ID.
+message ProductIdRequest {
+  int32 product_id = 1;
+}
+
+// The response message containing the product's details.
+message ProductInfoResponse {
+  string name = 1;
+  string description = 2;
+  int32 price = 3;
+  int32 quantity = 4;
+}

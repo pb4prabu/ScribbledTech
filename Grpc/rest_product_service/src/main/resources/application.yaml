@@ -1,0 +1,6 @@
+server:
+  port: 8081
+
+app:
+  name: router
+  description: This is for routing the incoming request
