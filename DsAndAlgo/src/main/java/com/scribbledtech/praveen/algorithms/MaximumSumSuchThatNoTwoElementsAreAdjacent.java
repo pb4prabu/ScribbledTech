@@ -1,5 +1,5 @@
 package com.scribbledtech.praveen.algorithms;
-
+//Maximum Sum Without Adjacent Elements (With Negative Numbers)
 public class MaximumSumSuchThatNoTwoElementsAreAdjacent {
 
     public static void main(String[] args) {
