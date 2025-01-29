@@ -1,0 +1,21 @@
+server:
+  port: 8082
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092  # Kafka broker addresses
+    consumer:
+      group-id: scribbled-tech-consumer-group  # Consumer group ID
+      auto-offset-reset: earliest      # Reset behavior (earliest, latest, none)
+      enable-auto-commit: true         # Enable automatic offset committing
+      auto-commit-interval: 1000       # Interval (in ms) to commit offsets automatically
+      max-poll-records: 500            # Maximum records to fetch in a single poll
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      fetch-min-size: 1                # Minimum amount of data (in bytes) for a poll request
+      fetch-max-wait: 500              # Maximum time (in ms) the broker waits before sending data
+      max-poll-interval: 300000        # Maximum time between poll() calls before a rebalance
+      heartbeat-interval: 3000         # Frequency of heartbeat requests to the broker
+      session-timeout: 10000           # Time (in ms) to detect a consumer crash
+      isolation-level: read_committed  # Visibility of transactional records (read_uncommitted/read_committed)
+    properties:
+      specific.consumer-property: value # Additional Kafka-specific consumer properties

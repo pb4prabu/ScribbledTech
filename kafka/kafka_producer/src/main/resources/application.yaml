@@ -1,0 +1,23 @@
+server:
+  port: 8083
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092  # Kafka broker addresses
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer # Serialize keys as strings
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer # Serialize values as strings
+      retries: 5                        # Number of retries for failed sends (useful for transient errors)
+      batch-size: 32768                 # Size of a batch in bytes (e.g., 32 KB). Larger batches improve throughput but increase latency
+      buffer-memory: 67108864           # Total memory (in bytes) for buffering unsent records (default: 32 MB, here: 64 MB)
+      acks: all                         # Acknowledgment level: 'all' ensures all replicas confirm the message for durability
+      compression-type: gzip            # Compression for records (options: none, gzip, snappy, lz4, zstd)
+      linger-ms: 10                     # Wait time (in ms) before sending a batch. Higher values improve batching but add latency
+      max-request-size: 2097152         # Maximum size (in bytes) of a single message (e.g., 2 MB here)
+      request-timeout-ms: 20000         # Time (in ms) to wait for the broker's response before retrying or failing
+      delivery-timeout-ms: 30000        # Total time (in ms) allowed for retries and sending the record before failing
+    properties:
+      enable.idempotence: true          # Ensures exactly-once delivery for messages (recommended for retries)
+      transactional.id: my-transaction-id # Enables transactional messaging (useful for atomic writes across topics/partitions)
+
+
