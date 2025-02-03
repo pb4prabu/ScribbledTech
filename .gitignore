@@ -4,5 +4,3 @@ target/*
 **/target/*
 **/.DS_Store
 .DS_Store
-.DS_Store
-Grpc/.DS_Store
